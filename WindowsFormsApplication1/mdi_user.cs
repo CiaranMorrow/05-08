@@ -12,68 +12,16 @@ namespace WindowsFormsApplication1
 {
     public partial class mdi_user : Form
     {
-        private int childFormNumber = 0;
+        private int i = 0;
 
         public mdi_user()
         {
             InitializeComponent();
         }
 
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
-        }
-
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
-
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           // toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           // statusStrip.Visible = statusBarToolStripMenuItem.Checked;
+            this.Close(); 
         }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,63 +46,97 @@ namespace WindowsFormsApplication1
 
         private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            foreach (Form childForm in MdiChildren)
+            foreach (Form mdichildForm in MdiChildren)
             {
-                childForm.Close();
+                mdichildForm.Close();
             }
         }
 
-        private void addNewBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        private void addNewMediaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            add_books ab = new add_books();
-            ab.Show();
+            //navigates to new media 
+            add_media am = new add_media();
+            am.Show();
         }
 
-        private void viewBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        private void viewMediaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            view_books vb = new view_books();
-            vb.Show();
+            //navigates to view media 
+            view_media vm = new view_media();
+            vm.Show();
         }
 
         private void addStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //navigates to add student info 
             add_student_info asi = new add_student_info();
             asi.Show();
         }
 
         private void viewStudentInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //navigates to view student info 
             view_student_info vsi = new view_student_info();
             vsi.Show();
         }
 
-        private void issueBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        private void issueMediaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            issue_books ib = new issue_books();
+            //nagigates to issue media tool strip menu 
+            issue_media ib = new issue_media();
             ib.Show();
         }
 
-        private void returnBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        private void returnMediaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            return_books rb = new return_books();
-            rb.Show();
+            // navigates to return media 
+            return_media rm = new return_media();
+            rm.Show();
+        }
+        
+        private void MediaStockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //navigates to media stock page 
+            media_stock ms = new media_stock();
+            ms.Show();
+        }
+       
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            // navigates to the home page when the user needs to log out
+            login LI = new login();
+            LI.Show();
+            this.Hide();
+        }
+        private void ShowNewForm(object sender, EventArgs e)
+        {
+            Form mdichildForm = new Form();
+            mdichildForm.MdiParent = this;
+            mdichildForm.Text = "Window " + i++;
+            mdichildForm.Show();
         }
 
-        private void bookStockToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenFile(object sender, EventArgs e)
         {
-            books_stock bs = new books_stock();
-            bs.Show();
+            OpenFileDialog DialogueOpen = new OpenFileDialog();
+            DialogueOpen.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            DialogueOpen.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (DialogueOpen.ShowDialog(this) == DialogResult.OK)
+            {
+                string FileName = DialogueOpen.FileName;
+            }
         }
 
-        private void remainBooksReportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            report_books_remain_retain rb = new report_books_remain_retain();
-            rb.Show();
+            SaveFileDialog saveDialogue = new SaveFileDialog();
+            saveDialogue.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            saveDialogue.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (saveDialogue.ShowDialog(this) == DialogResult.OK)
+            {
+                string FileName = saveDialogue.FileName;
+            }
         }
 
-        private void Mdi_user_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

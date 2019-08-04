@@ -53,6 +53,7 @@
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="MySql.Data, Version=8.0.16.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -68,11 +69,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="add_books.cs">
+    <Compile Include="add_media.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="add_books.Designer.cs">
-      <DependentUpon>add_books.cs</DependentUpon>
+    <Compile Include="add_media.Designer.cs">
+      <DependentUpon>add_media.cs</DependentUpon>
     </Compile>
     <Compile Include="add_student_info.cs">
       <SubType>Form</SubType>
@@ -80,29 +81,18 @@
     <Compile Include="add_student_info.Designer.cs">
       <DependentUpon>add_student_info.cs</DependentUpon>
     </Compile>
-    <Compile Include="books_stock.cs">
+    <Compile Include="media_stock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="books_stock.Designer.cs">
-      <DependentUpon>books_stock.cs</DependentUpon>
+    <Compile Include="media_stock.Designer.cs">
+      <DependentUpon>media_stock.cs</DependentUpon>
     </Compile>
     <Compile Include="Class1.cs" />
-    <Compile Include="CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="issue_books.cs">
+    <Compile Include="issue_media.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="issue_books.Designer.cs">
-      <DependentUpon>issue_books.cs</DependentUpon>
+    <Compile Include="issue_media.Designer.cs">
+      <DependentUpon>issue_media.cs</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -118,29 +108,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="report_books_remain_retain.cs">
+    <Compile Include="ReportsCustomerEngagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="report_books_remain_retain.Designer.cs">
-      <DependentUpon>report_books_remain_retain.cs</DependentUpon>
+    <Compile Include="ReportsCustomerEngagement.Designer.cs">
+      <DependentUpon>ReportsCustomerEngagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="return_books.cs">
+    <Compile Include="return_media.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="return_books.Designer.cs">
-      <DependentUpon>return_books.cs</DependentUpon>
+    <Compile Include="return_media.Designer.cs">
+      <DependentUpon>return_media.cs</DependentUpon>
     </Compile>
-    <Compile Include="testing.cs">
+    <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="testing.Designer.cs">
-      <DependentUpon>testing.cs</DependentUpon>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="view_books.cs">
+    <Compile Include="view_media.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view_books.Designer.cs">
-      <DependentUpon>view_books.cs</DependentUpon>
+    <Compile Include="view_media.Designer.cs">
+      <DependentUpon>view_media.cs</DependentUpon>
     </Compile>
     <Compile Include="view_student_info.cs">
       <SubType>Form</SubType>
@@ -148,24 +138,21 @@
     <Compile Include="view_student_info.Designer.cs">
       <DependentUpon>view_student_info.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="add_books.resx">
-      <DependentUpon>add_books.cs</DependentUpon>
+    <EmbeddedResource Include="add_media.resx">
+      <DependentUpon>add_media.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="add_student_info.resx">
       <DependentUpon>add_student_info.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="books_stock.resx">
-      <DependentUpon>books_stock.cs</DependentUpon>
+    <EmbeddedResource Include="media_stock.resx">
+      <DependentUpon>media_stock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="issue_books.resx">
-      <DependentUpon>issue_books.cs</DependentUpon>
+    <EmbeddedResource Include="issue_media.resx">
+      <DependentUpon>issue_media.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="mdi_user.resx">
       <DependentUpon>mdi_user.cs</DependentUpon>
@@ -180,32 +167,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="report_books_remain_retain.resx">
-      <DependentUpon>report_books_remain_retain.cs</DependentUpon>
+    <EmbeddedResource Include="ReportsCustomerEngagement.resx">
+      <DependentUpon>ReportsCustomerEngagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="return_books.resx">
-      <DependentUpon>return_books.cs</DependentUpon>
+    <EmbeddedResource Include="return_media.resx">
+      <DependentUpon>return_media.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="testing.resx">
-      <DependentUpon>testing.cs</DependentUpon>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view_books.resx">
-      <DependentUpon>view_books.cs</DependentUpon>
+    <EmbeddedResource Include="view_media.resx">
+      <DependentUpon>view_media.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view_student_info.resx">
       <DependentUpon>view_student_info.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -221,16 +197,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="student_images\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Database1.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Database1_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>Database1.mdf</DependentUpon>
-    </Content>
-    <Content Include="images\lock.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
