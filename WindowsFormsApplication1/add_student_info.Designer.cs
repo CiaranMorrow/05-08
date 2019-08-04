@@ -75,7 +75,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(955, 302);
             this.panel1.TabIndex = 0;
-           
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -179,7 +179,6 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "student HireCount";
             this.label5.Visible = false;
-            
             // 
             // label4
             // 
@@ -200,7 +199,6 @@
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "enrollment no";
-            
             // 
             // label2
             // 
