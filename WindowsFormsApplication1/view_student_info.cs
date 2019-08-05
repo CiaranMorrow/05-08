@@ -76,29 +76,21 @@ namespace WindowsFormsApplication1
                 string imgPath = dr["student_image"].ToString();
                 if (imgPath != null || imgPath != "")
                 {
-
                     // view the attempt to have a dynamic routing system 
                     // string path = Path.GetFullPath(Path.Combine( @"..\..\")(Path.Combine("\student_info");
                     //string path = Path.GetFullPath(Path.Combine({Directory.GetCurrentDirectory()}, "\student_images")));
-
                     //path(Path.Combine(@"\student_images"));
-
                   string path = Directory.GetCurrentDirectory() + "..\\..\\..\\"; // finds the parent directory of current working folder 
-
-
                   //MessageBox.Show(path); // used this to see where i was working from and then i could navigate from here 
-
                   Image photo = Image.FromFile($"{path} \\student_images\\{imgPath}"); // the route that must now be taken to locate the image files 
                   img = new Bitmap(photo);
                   dataGridView1.Rows[i].Cells[8].Value = img; // view the image 
                   dataGridView1.Rows[i].Height = 100; // view the image sizing 
                   i = i + 1;
-                  
                 }
                 else
                 {
                     continue; // if the image corrupt / fualty it carries on 
-
                 }
             }
         }
