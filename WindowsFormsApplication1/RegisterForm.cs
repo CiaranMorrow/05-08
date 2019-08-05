@@ -153,11 +153,7 @@ namespace WindowsFormsApplication1
             // opens dbconnection 
             con = new MySqlConnection("server=localhost;user=root;database=120itdb;port=3306;password=;");
             con.Open();
-            MySqlCommand command = con.CreateCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = "Insert into library_person(`Id`, `fullname`, `username`, `password`, `email`)  values (null,'" + textBoxFirstname.Text + "', '" + textBoxUsername.Text + "', '" + textBoxPassword.Text + "', '" + textBoxEmail.Text + "')";
-            command.ExecuteNonQuery(); 
-            // fills data into db if the following statements are correct 
+           
 
             if (!CheckTextBoxesValues()) // see the method further below, but checks if the default values are present
             {
@@ -171,9 +167,17 @@ namespace WindowsFormsApplication1
                     }
                     else
                     {
+                        MySqlCommand command = con.CreateCommand();
                         // execute the query
                         if (command.ExecuteNonQuery()==1)
                         {
+                            
+                            command.CommandType = CommandType.Text;
+                            command.CommandText = "Insert into library_person(`Id`, `fullname`, `username`, `password`, `email`)  values (null,'" + textBoxFirstname.Text + "', '" + textBoxUsername.Text + "', '" + textBoxPassword.Text + "', '" + textBoxEmail.Text + "')";
+                            command.ExecuteNonQuery();
+                            // fills data into db if the following statements are correct 
+
+
                             MessageBox.Show("Your Account Has Been Created", "Account Created, Welcome to Lend-It-Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Hide();
                             con.Close();
@@ -278,6 +282,16 @@ namespace WindowsFormsApplication1
             login LI = new login();
             LI.Show();
             this.Hide();
+        }
+
+        private void TextBoxFirstname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBoxUsername_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

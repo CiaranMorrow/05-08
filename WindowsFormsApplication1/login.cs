@@ -60,7 +60,7 @@ namespace WindowsFormsApplication1
             try
             {
                 dbconnection = new MySqlConnection("server=localhost;user=root;database=120itdb;port=3306;password=;");
-                if (dbconnection.State == ConnectionState.Closed)
+                if (dbconnection.State == ConnectionState.Closed) 
                 {
                     dbconnection.Open();
                 }

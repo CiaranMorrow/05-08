@@ -78,35 +78,35 @@
             // addNewMediaToolStripMenuItem
             // 
             this.addNewMediaToolStripMenuItem.Name = "addNewMediaToolStripMenuItem";
-            this.addNewMediaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.addNewMediaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addNewMediaToolStripMenuItem.Text = "Add New Media";
             this.addNewMediaToolStripMenuItem.Click += new System.EventHandler(this.addNewMediaToolStripMenuItem_Click);
             // 
             // viewMediaToolStripMenuItem
             // 
             this.viewMediaToolStripMenuItem.Name = "viewMediaToolStripMenuItem";
-            this.viewMediaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.viewMediaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewMediaToolStripMenuItem.Text = "View Media";
             this.viewMediaToolStripMenuItem.Click += new System.EventHandler(this.viewMediaToolStripMenuItem_Click);
             // 
             // issueMediaToolStripMenuItem
             // 
             this.issueMediaToolStripMenuItem.Name = "issueMediaToolStripMenuItem";
-            this.issueMediaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.issueMediaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.issueMediaToolStripMenuItem.Text = "Issue Media";
             this.issueMediaToolStripMenuItem.Click += new System.EventHandler(this.issueMediaToolStripMenuItem_Click);
             // 
             // returnMediaToolStripMenuItem
             // 
             this.returnMediaToolStripMenuItem.Name = "returnMediaToolStripMenuItem";
-            this.returnMediaToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.returnMediaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.returnMediaToolStripMenuItem.Text = "Return Media";
             this.returnMediaToolStripMenuItem.Click += new System.EventHandler(this.returnMediaToolStripMenuItem_Click);
             // 
             // MediaStockToolStripMenuItem
             // 
             this.MediaStockToolStripMenuItem.Name = "MediaStockToolStripMenuItem";
-            this.MediaStockToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.MediaStockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.MediaStockToolStripMenuItem.Text = "Media Stock";
             this.MediaStockToolStripMenuItem.Click += new System.EventHandler(this.MediaStockToolStripMenuItem_Click);
             // 
@@ -122,14 +122,14 @@
             // addStudentToolStripMenuItem
             // 
             this.addStudentToolStripMenuItem.Name = "addStudentToolStripMenuItem";
-            this.addStudentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addStudentToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.addStudentToolStripMenuItem.Text = "Add Student";
             this.addStudentToolStripMenuItem.Click += new System.EventHandler(this.addStudentToolStripMenuItem_Click);
             // 
             // viewStudentInfoToolStripMenuItem
             // 
             this.viewStudentInfoToolStripMenuItem.Name = "viewStudentInfoToolStripMenuItem";
-            this.viewStudentInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewStudentInfoToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.viewStudentInfoToolStripMenuItem.Text = "View Student Info";
             this.viewStudentInfoToolStripMenuItem.Click += new System.EventHandler(this.viewStudentInfoToolStripMenuItem_Click);
             // 
@@ -204,6 +204,7 @@
             this.Name = "mdi_user";
             this.Text = "MorrowSystems";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Mdi_user_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);

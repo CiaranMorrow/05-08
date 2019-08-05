@@ -20,7 +20,10 @@ namespace WindowsFormsApplication1
 
         // string pawthway directory for images
         string imagepathway;
-        string pwd = Class1.GetRandomPassword(20); 
+        string pwd = Class1.GetRandomPassword(20);
+
+
+
         public add_student_info()
         {
             InitializeComponent();
@@ -49,7 +52,6 @@ namespace WindowsFormsApplication1
                 string img_path;
                 File.Copy(openFileDialog1.FileName, imagepathway + "\\student_images\\" + pwd + ".jpg");
                 img_path = pwd + ".jpg";
-
                 connnection.Open();
                 MySqlCommand Command = connnection.CreateCommand();
                 Command.CommandType = CommandType.Text;

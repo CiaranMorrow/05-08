@@ -67,5 +67,9 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

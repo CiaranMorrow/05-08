@@ -138,5 +138,9 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void Mdi_user_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

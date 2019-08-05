@@ -80,7 +80,7 @@ namespace WindowsFormsApplication1
 
             if (e.KeyCode != Keys.Enter)
             {
-                //allows user to scroll through the database's list of medias
+                //allows user to scroll through the database's list of medias and press enter 
                 listBox1.Items.Clear();
                 MySqlCommand command = dbconnection.CreateCommand();
                 command.CommandType = CommandType.Text;
@@ -148,22 +148,17 @@ namespace WindowsFormsApplication1
             {
                 available_qty = Convert.ToInt32(dr2["available_qty"].ToString()); // conversion 
             }
-
             if (available_qty > 0) // checks if the media is available for hire
             {
-
-
                 MySqlCommand cmd3 = dbconnection.CreateCommand();
                 cmd3.CommandType = CommandType.Text;
                 cmd3.CommandText = "insert into issue_media values(null, '" + txt_enrollment.Text + "','" + txt_studentname.Text + "','" + txt_studentdept.Text + "','" + txt_stuxdentHireCount.Text + "','" + txt_studentcontact.Text + "','" + txt_studentemail.Text + "','" + txt_Medianame.Text + "','" + dateTimePicker1.Value.ToShortDateString() + "','')";
                 cmd3.ExecuteNonQuery();//commiuts the data above to the table, so as to update the db to the media request made by the user
-
                 MySqlCommand cmd4 = dbconnection.CreateCommand();
                 cmd4.CommandType = CommandType.Text;
                 cmd4.CommandText = "update media_info set available_qty=available_qty-1 where media_name='" + txt_Medianame.Text + "'";
                 cmd4.ExecuteNonQuery(); //we need to show that the media is now less available to before. we only need to reduce this by one
                 // we will increase this in the returning class later when the user has returned the media 
-
                 MySqlCommand cmd5 = dbconnection.CreateCommand();
                 cmd5.CommandType = CommandType.Text;
                 cmd5.CommandText = "update student_info set Student_HireCount=Student_HireCount+1 where student_enrollment_no='" + txt_enrollment.Text + "'";
@@ -176,6 +171,9 @@ namespace WindowsFormsApplication1
             }
         }
 
-        
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

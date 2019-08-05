@@ -75,6 +75,7 @@
             this.txt_studentname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_studentname.Location = new System.Drawing.Point(103, 177);
             this.txt_studentname.Name = "txt_studentname";
+            this.txt_studentname.ReadOnly = true;
             this.txt_studentname.Size = new System.Drawing.Size(194, 23);
             this.txt_studentname.TabIndex = 2;
             // 
@@ -83,6 +84,7 @@
             this.txt_studentdept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_studentdept.Location = new System.Drawing.Point(103, 206);
             this.txt_studentdept.Name = "txt_studentdept";
+            this.txt_studentdept.ReadOnly = true;
             this.txt_studentdept.Size = new System.Drawing.Size(194, 23);
             this.txt_studentdept.TabIndex = 3;
             // 
@@ -100,6 +102,7 @@
             this.txt_studentcontact.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_studentcontact.Location = new System.Drawing.Point(397, 177);
             this.txt_studentcontact.Name = "txt_studentcontact";
+            this.txt_studentcontact.ReadOnly = true;
             this.txt_studentcontact.Size = new System.Drawing.Size(194, 23);
             this.txt_studentcontact.TabIndex = 5;
             // 
@@ -108,6 +111,7 @@
             this.txt_studentemail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_studentemail.Location = new System.Drawing.Point(103, 235);
             this.txt_studentemail.Name = "txt_studentemail";
+            this.txt_studentemail.ReadOnly = true;
             this.txt_studentemail.Size = new System.Drawing.Size(194, 23);
             this.txt_studentemail.TabIndex = 6;
             // 
@@ -248,6 +252,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1096, 517);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // issue_media
             // 
