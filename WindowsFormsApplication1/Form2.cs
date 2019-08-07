@@ -10,16 +10,15 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class ReportsCustomerEngagement : Form
+    public partial class Form2 : Form
     {
-        public ReportsCustomerEngagement()
+        public Form2()
         {
             InitializeComponent();
         }
 
-        private void ReportsA_Load(object sender, EventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
-            
 
         }
     }

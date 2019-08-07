@@ -106,7 +106,7 @@ namespace WindowsFormsApplication1
             // this function is not working due to the security functionality of the fastmail's server
             // this is a disposable account that i have no affliation too
             // i tried using google's function but it didnt work very well and again the security protocol required two stage verification on my account. 
-            // this data is possible to achieve, howwvever further lend it out research would be necessary
+            // this data is possible to achieve, howwvever further lend it out research would be necessarys
             SmtpClient smtpProtocol = new SmtpClient("smtp.fastmail.com", 465);
             smtpProtocol.EnableSsl = true;
             smtpProtocol.UseDefaultCredentials = false;
