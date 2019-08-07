@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -211,7 +212,7 @@ namespace WindowsFormsApplication1
 
                 MySqlCommand cmd = dbcon.CreateCommand();
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select `media_name`, COUNT(*) AS IssuedCounter FROM issue_media Group BY media_name ORDER By IssuedCounter DESC";
+                cmd.CommandText = "select `media_name`, COUNT(*) AS IssuedCounter FROM issue_media Group BY media_name ORDER By IssuedCounter Desc";
                 cmd.ExecuteNonQuery(); // shows all table detail, doesnt isolate inserts 
                 DataTable dt = new DataTable();
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -227,6 +228,64 @@ namespace WindowsFormsApplication1
             }
 
         }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //ensures db is open 
+                if (dbcon.State == ConnectionState.Closed)
+                {
+                    dbcon.Open();
+                }
+
+                MySqlCommand cmd = dbcon.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select `media_name`, COUNT(*) AS IssuedCounter FROM issue_media Group BY media_name ORDER By IssuedCounter asc";
+                cmd.ExecuteNonQuery(); // shows all table detail, doesnt isolate inserts 
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+
+
+                dbcon.Close();
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+       /*private void Button6_Click(object sender, EventArgs e)
+        {
+
+            //Build the CSV file data as a Comma separated string.
+            string csv = string.Empty;
+
+            //Add the Header row for CSV file.
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                csv += column.HeaderText + ',';
+            }
+
+            //Add new line.
+            csv += "\r\n";
+
+            //Adding the Rows
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    csv += row.Cells[i].Value.ToString().Replace(",", ";") + ',';
+                }
+                //Add new line.
+                csv += "\r\n";
+            }
+            //Exporting to CSV.
+            string folderPath = "C:\\Users\\dell\\Documents\\uni\\Uni\\1st year\\120 IT Principles\\Assignment 2\\Appendix\\";
+            File.WriteAllText(folderPath + "test.csv", csv);
+        }*/
 
 
         /*SELECT `media_name`,COUNT(*) AS IssuedCounter
