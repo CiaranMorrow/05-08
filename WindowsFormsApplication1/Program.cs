@@ -15,10 +15,10 @@ namespace WindowsFormsApplication1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //MessageBox.Show(" Welcome to Lend-IT-Out Media Hire Comapany \n Please Read Company GDPR Policy Before Using the System");
+            MessageBox.Show(" Welcome to Lend-IT-Out Media Hire Comapany \n Please Read Company GDPR Policy Before Using the System");
             //this allows the user to be aware of their responsibility when using the system 
             
-            Application.Run(new mdi_user());
+            Application.Run(new login());
         }
     }
 }
