@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(return_media));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -93,7 +94,6 @@
             this.panel2.Size = new System.Drawing.Size(729, 305);
             this.panel2.TabIndex = 1;
             this.panel2.Visible = false;
-            
             // 
             // dataGridView1
             // 
@@ -192,6 +192,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "return_media";
             this.Text = "return_media";
             this.Load += new System.EventHandler(this.Return_media_Load);

@@ -11,11 +11,11 @@ using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using MySql.Data;
 
-    /*
-        This part of the program is used to show the vaildation required when creating an account
-        It shows that a user cant enter or omit required details by leaving them empty or entering inncorrect details
-        This is proof of concept and there could be other details that an account must have such as a capital letter and number in the password
-    */
+/*
+    This part of the program is used to show the vaildation required when creating an account
+    It shows that a user cant enter or omit required details by leaving them empty or entering inncorrect details
+    This is proof of concept and there could be other details that an account must have such as a capital letter and number in the password
+*/
 
 namespace WindowsFormsApplication1
 {
@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-        
+
 
         private void TextBoxFirstname_Enter_1(object sender, EventArgs e)
         {
@@ -144,16 +144,20 @@ namespace WindowsFormsApplication1
         {
             // when the user leaves the text box we need to show that the field needs to be filled in
             // Lend-it-Out have then repopulated the textbox in red writing to show the appropriate missing detail
-            
+
         }
 
-       
+
         private void ButtonCreateAccount_Click(object sender, EventArgs e)
         {
             // opens dbconnection 
             con = new MySqlConnection("server=localhost;user=root;database=120itdb;port=3306;password=;");
             con.Open();
-           
+            MySqlCommand command = con.CreateCommand();
+            command.CommandType = CommandType.Text;
+            command.CommandText = "Insert into library_person(`Id`, `fullname`, `username`, `password`, `email`)  values (null,'" + textBoxFirstname.Text + "', '" + textBoxUsername.Text + "', '" + textBoxPassword.Text + "', '" + textBoxEmail.Text + "')";
+            command.ExecuteNonQuery();
+            // fills data into db if the following statements are correct 
 
             if (!CheckTextBoxesValues()) // see the method further below, but checks if the default values are present
             {
@@ -167,17 +171,9 @@ namespace WindowsFormsApplication1
                     }
                     else
                     {
-                        MySqlCommand command = con.CreateCommand();
                         // execute the query
-                        if (command.ExecuteNonQuery()==1)
+                        if (command.ExecuteNonQuery() == 1)
                         {
-                            
-                            command.CommandType = CommandType.Text;
-                            command.CommandText = "Insert into library_person(`Id`, `fullname`, `username`, `password`, `email`)  values (null,'" + textBoxFirstname.Text + "', '" + textBoxUsername.Text + "', '" + textBoxPassword.Text + "', '" + textBoxEmail.Text + "')";
-                            command.ExecuteNonQuery();
-                            // fills data into db if the following statements are correct 
-
-
                             MessageBox.Show("Your Account Has Been Created", "Account Created, Welcome to Lend-It-Out", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Hide();
                             con.Close();
@@ -208,27 +204,27 @@ namespace WindowsFormsApplication1
         {
             con = new MySqlConnection("server=localhost;user=root;database=120itdb;port=3306;password=;");
             con.Open();
-             string sql = $"select * from library_person where username='{textBoxUsername.Text}'";
+            string sql = $"select * from library_person where username='{textBoxUsername.Text}'";
 
-             MySqlCommand cmd = new MySqlCommand(sql, con);
+            MySqlCommand cmd = new MySqlCommand(sql, con);
             cmd.ExecuteNonQuery();
 
-             DataTable dt = new DataTable();
-             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-             da.Fill(dt);
-             count = Convert.ToInt32(dt.Rows.Count.ToString());
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(dt);
+            count = Convert.ToInt32(dt.Rows.Count.ToString());
 
-             if (count == 1)
-             {
-                
+            if (count == 1)
+            {
+
                 return false;
-                                          
-             }
-             else
-             {
+
+            }
+            else
+            {
                 return true;
-                
-             }
+
+            }
         }
 
         public Boolean CheckTextBoxesValues()
@@ -283,17 +279,7 @@ namespace WindowsFormsApplication1
             LI.Show();
             this.Hide();
         }
-
-        private void TextBoxFirstname_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBoxUsername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
-   
+
 

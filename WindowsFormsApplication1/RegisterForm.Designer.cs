@@ -159,7 +159,6 @@
             this.textBoxUsername.Size = new System.Drawing.Size(340, 32);
             this.textBoxUsername.TabIndex = 11;
             this.textBoxUsername.Text = "Username";
-            this.textBoxUsername.TextChanged += new System.EventHandler(this.TextBoxUsername_TextChanged);
             this.textBoxUsername.Enter += new System.EventHandler(this.TextBoxUsername_Enter);
             this.textBoxUsername.Leave += new System.EventHandler(this.TextBoxUsername_Leave);
             // 
@@ -183,7 +182,6 @@
             this.textBoxFirstname.Size = new System.Drawing.Size(165, 28);
             this.textBoxFirstname.TabIndex = 200;
             this.textBoxFirstname.Text = "Full Name";
-            this.textBoxFirstname.TextChanged += new System.EventHandler(this.TextBoxFirstname_TextChanged);
             this.textBoxFirstname.Enter += new System.EventHandler(this.TextBoxFirstname_Enter_1);
             this.textBoxFirstname.Leave += new System.EventHandler(this.TextBoxFirstname_Leave);
             // 

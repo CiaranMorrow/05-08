@@ -198,5 +198,42 @@ namespace WindowsFormsApplication1
                 throw (ex);
             }
         }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //ensures db is open 
+                if (dbcon.State == ConnectionState.Closed)
+                {
+                    dbcon.Open();
+                }
+
+                MySqlCommand cmd = dbcon.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select `media_name`, COUNT(*) AS IssuedCounter FROM issue_media Group BY media_name ORDER By IssuedCounter DESC";
+                cmd.ExecuteNonQuery(); // shows all table detail, doesnt isolate inserts 
+                DataTable dt = new DataTable();
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+
+
+                dbcon.Close();
+            }
+            catch (Exception ex)
+            {
+                throw (ex);
+            }
+
+        }
+
+
+        /*SELECT `media_name`,COUNT(*) AS IssuedCounter
+FROM issue_media
+GROUP BY media_name
+ORDER BY IssuedCounter DESC*/
+
+
     }
 }

@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.IO;
 using MySql.Data.MySqlClient;
 
+
 namespace WindowsFormsApplication1
 {
     public partial class view_student_info : Form
@@ -48,7 +49,6 @@ namespace WindowsFormsApplication1
           
         }
 
-
         public void fill_grid()
         {
             dataGridView1.Columns.Clear();
@@ -73,7 +73,7 @@ namespace WindowsFormsApplication1
             dataGridView1.Columns.Add(imageCol);
             foreach (DataRow dr in dt.Rows)
             {
-                string imgPath = dr["student_image"].ToString();
+               string imgPath = dr["student_image"].ToString();
                 if (imgPath != null || imgPath != "")
                 {
                     // view the attempt to have a dynamic routing system 
@@ -87,7 +87,8 @@ namespace WindowsFormsApplication1
                   dataGridView1.Rows[i].Cells[8].Value = img; // view the image 
                   dataGridView1.Rows[i].Height = 100; // view the image sizing 
                   i = i + 1;
-                }
+                
+    }
                 else
                 {
                     continue; // if the image corrupt / fualty it carries on 
@@ -171,8 +172,8 @@ namespace WindowsFormsApplication1
 
             string path = Directory.GetCurrentDirectory() + "..\\..\\..\\";
             wanted_path = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
-            result = openFileDialog1.ShowDialog();
-            openFileDialog1.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+            result = PrintButton.ShowDialog();
+            PrintButton.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
             
         }
 
@@ -184,7 +185,7 @@ namespace WindowsFormsApplication1
                 int i;
                 i = Convert.ToInt32(dataGridView1.SelectedCells[0].Value.ToString());
                 string img_path;
-                File.Copy(openFileDialog1.FileName, wanted_path + "\\student_images\\" + pwd + ".jpg");
+                File.Copy(PrintButton.FileName, wanted_path + "\\student_images\\" + pwd + ".jpg");
                 img_path = "student_images\\" + pwd + ".jpg";
 
                 MySqlCommand cmd = con.CreateCommand();
@@ -208,6 +209,59 @@ namespace WindowsFormsApplication1
             }
         }
 
-       
+        public void Button2_Click(object sender, EventArgs e)
+        {
+            //Resize DataGridView to full height.
+            int height = dataGridView1.Height;
+           
+
+            //Create a Bitmap and draw the DataGridView on it.
+             bitmap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
+            dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
+
+            //Resize DataGridView back to original height.
+            dataGridView1.Height = height;
+
+            //Show the Print Preview Dialog.
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
+            printPreviewDialog1.ShowDialog();
+        }
+        Bitmap bitmap;
+
+        private void PrintDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //Print the contents.
+            e.Graphics.DrawImage(bitmap, 0, 0);
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            //Build the CSV file data as a Comma separated string.
+            string csv = string.Empty;
+
+            //Add the Header row for CSV file.
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                csv += column.HeaderText + ',';
+            }
+
+            //Add new line.
+            csv += "\r\n";
+
+            //Adding the Rows
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    csv += row.Cells[i].Value.ToString().Replace(",", ";") + ',';
+                } 
+                //Add new line.
+                csv += "\r\n";
+            }
+            //Exporting to CSV.
+            string folderPath = "C:\\Users\\dell\\Documents\\uni\\Uni\\1st year\\120 IT Principles\\Assignment 2\\Appendix\\";
+            File.WriteAllText(folderPath + "test.csv", csv);
+        }
     }
 }
